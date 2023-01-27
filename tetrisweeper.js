@@ -51,7 +51,13 @@ canvas.addEventListener("click", function (e) {
     
     var cell = {x: Math.floor(mousePos.x / cellWidth), y: Math.floor(mousePos.y / cellHeight)};
     
-    console.log(mousePos, cell);
+    if (! (cell.x | cell.y)) {
+        if(canvas.webkitRequestFullScreen) {
+            canvas.webkitRequestFullScreen();
+        } else {
+            canvas.mozRequestFullScreen();
+       }    
+    }
 
 
     grid[cell.y * gridWidth + cell.x] = !grid[cell.y * gridWidth + cell.x];
