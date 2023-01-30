@@ -5,6 +5,8 @@ var tetrisRect = {
     height: boradHeight
 };
 
+var squareY = 1000;
+
 function renderGridLines() {
 
     ctx.beginPath();
@@ -26,11 +28,11 @@ function renderControls() {
     ctx.fillStyle = "gray";
     
     for (let i = 0; i < 3; i++) {
-        ctx.fillRect(50 + (i * 125), 1000, 120, 120);
+        ctx.fillRect(50 + (i * 125), squareY, 120, 120);
     }
     
     for (let i = 0; i < 2; i++) {
-        ctx.fillRect(500 + (i * 125), 1000, 120, 120);
+        ctx.fillRect(500 + (i * 125), squareY, 120, 120);
     }
 }
 

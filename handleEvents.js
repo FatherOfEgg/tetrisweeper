@@ -22,17 +22,32 @@ canvas.addEventListener("click", function (e) {
     //     alert('clicked outside rect');
     // }
     
-    if (!isInsideRect(mousePos, tetrisRect)) {
-        return;
+    if (isInsideRect(mousePos, tetrisRect)) {
+        var cell = {
+            x: Math.floor((mousePos.x - boardCenterX) / cellWidth),
+            y: Math.floor(mousePos.y / cellHeight)
+        };
+    
+        var index = cell.y * gridWidth + cell.x;
+    
+        grid[index] = !grid[index];
     }
 
-    var cell = {
-        x: Math.floor((mousePos.x - boardCenterX) / cellWidth),
-        y: Math.floor(mousePos.y / cellHeight)
-    };
 
-    var index = cell.y * gridWidth + cell.x;
+    var decRect = {
+        x: 500,
+        y: squareY,
+        width: 120,
+        height: 120
+    }
+    var incRect = {
+        x: 500 + 125,
+        y: squareY,
+        width: 120,
+        height: 120
+    }
 
-    grid[index] = !grid[index];
+    if (isInsideRect(mousePos, decRect)) squareY -= 5;
+    if (isInsideRect(mousePos, incRect)) squareY += 5;
 
 }, false);

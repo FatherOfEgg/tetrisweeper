@@ -36,7 +36,10 @@ window.onload = (e) => {
 function main() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    renderTetris();    
+    renderTetris();
+    
+    ctx.fillStyle = "black";
+    ctx.fillText(squareY, 5, 100);
 }
 
 setInterval(main, 16.66)
